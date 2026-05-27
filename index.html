@@ -365,7 +365,7 @@
 
         // 💡 點擊標題 "Stamps" 即可重設，方便你在測試不同的活動切換！
         function resetProgressForTesting() {
-            if(confirm("【開發測試提示】是否要清空目前的集章進度，退回「集章中」畫面進行測試？")) {
+            if(confirm("是否要清空目前的集章進度")) {
                 localStorage.removeItem(CONFIG.storageKey);
                 userProgress = {};
                 init();
