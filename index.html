@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-    <title>集章活動 | 所有關卡挑戰成功</title>
+    <title>數位集章系統 | 動態活動平台</title>
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
@@ -61,224 +61,318 @@
                     "on-tertiary-container": "#848484",
                     "on-secondary-container": "#fefcff"
             },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "stack-xl": "64px",
-                    "margin-desktop": "64px",
-                    "margin-mobile": "20px",
-                    "stack-md": "16px",
-                    "stack-lg": "32px",
-                    "unit": "8px",
-                    "gutter": "24px",
-                    "container-max": "1200px",
-                    "stack-sm": "8px"
-            },
-            "fontFamily": {
-                    "label-sm": ["Inter"],
-                    "headline-md": ["Inter"],
-                    "body-md": ["Inter"],
-                    "body-lg": ["Inter"],
-                    "label-caps": ["Inter"],
-                    "headline-lg-mobile": ["Inter"],
-                    "display": ["Inter"],
-                    "headline-lg": ["Inter"]
-            },
-            "fontSize": {
-                    "label-sm": ["13px", {"lineHeight": "1", "letterSpacing": "0", "fontWeight": "500"}],
-                    "headline-md": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                    "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
-                    "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
-                    "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}],
-                    "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
-                    "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
-                    "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}]
-            }
+            "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+            "spacing": { "stack-xl": "64px", "margin-desktop": "64px", "margin-mobile": "20px", "stack-md": "16px", "stack-lg": "32px", "unit": "8px", "gutter": "24px", "container-max": "1200px", "stack-sm": "8px" },
+            "fontFamily": { "label-sm": ["Inter"], "headline-md": ["Inter"], "body-md": ["Inter"], "body-lg": ["Inter"], "label-caps": ["Inter"], "headline-lg-mobile": ["Inter"], "display": ["Inter"], "headline-lg": ["Inter"] },
+            "fontSize": { "label-sm": ["13px", {"lineHeight": "1", "letterSpacing": "0", "fontWeight": "500"}], "headline-md": ["20px", {"lineHeight": "1.4", "letterSpacing": "-0.01em", "fontWeight": "600"}], "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}], "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}], "label-caps": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "700"}], "headline-lg-mobile": ["24px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}], "display": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}], "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}] }
           },
         },
       }
     </script>
     <style>
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-        .stamp-grid-item {
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .stamp-grid-item:hover {
-            transform: translateY(-4px);
-        }
-        .success-line {
-            animation: grow-line 1.5s ease-out forwards;
-        }
-        @keyframes grow-line {
-            from { width: 0%; }
-            to { width: 100%; }
-        }
-        .fade-in {
-            animation: fade-in 0.8s ease-out forwards;
-        }
-        @keyframes fade-in {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .stamp-grid-item { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .stamp-grid-item:hover { transform: translateY(-4px); }
+        .station-card { transition: all 0.2s ease; }
+        .success-line { transition: width 0.4s ease; }
+        .fade-in { animation: fade-in 0.6s ease-out forwards; }
+        @keyframes fade-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
 <body class="bg-background text-on-background font-body-md antialiased">
 
     <!-- 頂端全域進度條 -->
     <div class="fixed top-0 left-0 w-full h-[2px] bg-outline-variant z-[100]">
-        <div class="success-line h-full bg-secondary-container"></div>
+        <div id="global-progress-bar" class="success-line h-full bg-secondary-container" style="width: 0%;"></div>
     </div>
 
     <!-- 頂部導覽列 -->
     <header class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant">
         <div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-            <div class="font-display text-display tracking-tighter text-primary cursor-pointer active:opacity-70 transition-opacity">
+            <!-- 💡 測試密技：點擊這個 Stamps 標題可以重設清除快取 -->
+            <div onclick="resetProgressForTesting()" class="font-display text-display tracking-tighter text-primary cursor-pointer active:opacity-70 select-none">
                 Stamps
             </div>
             <nav class="hidden md:flex items-center gap-stack-lg h-full">
-                <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer" href="#">探索關卡</a>
-                <a class="font-headline-md text-headline-md text-primary border-b-2 border-primary pb-1 transition-colors duration-200 cursor-pointer" href="#">我的收藏</a>
-                <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer" href="#">兌換獎勵</a>
+                <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">探索關卡</a>
+                <a id="nav-collection" class="font-headline-md text-headline-md text-on-surface-variant transition-colors cursor-pointer pb-1" href="#">我的收藏</a>
+                <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">兌換獎勵</a>
             </nav>
             <div class="flex items-center gap-stack-md">
-                <span class="material-symbols-outlined text-primary cursor-pointer active:opacity-70 transition-opacity" data-icon="account_circle">account_circle</span>
+                <span class="material-symbols-outlined text-primary cursor-pointer" data-icon="account_circle">account_circle</span>
                 <span class="md:hidden material-symbols-outlined text-primary cursor-pointer" data-icon="menu">menu</span>
             </div>
         </div>
     </header>
 
-    <!-- 主內容區 -->
+    <!-- 主主頁面區 -->
     <main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-xl">
         
-        <!-- 英雄慶賀區 -->
-        <section class="flex flex-col items-center text-center mb-stack-xl fade-in" style="animation-delay: 0.1s;">
-            <div class="w-24 h-24 bg-primary flex items-center justify-center mb-stack-md">
-                <span class="material-symbols-outlined text-on-primary text-[48px]" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
-            </div>
-            <h1 class="font-display text-headline-lg-mobile md:text-display mb-stack-sm">所有關卡皆已完成！</h1>
-            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">
-                恭喜你！你已成功探索 2024 現代科技峰會的所有創新中心。你的好奇心與探索值得這份專屬榮耀。
-            </p>
-        </section>
-
-        <!-- 六大勳章牆 -->
-        <section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-gutter mb-stack-xl fade-in" style="animation-delay: 0.3s;">
-            
-            <!-- 勳章 1 -->
-            <div class="stamp-grid-item border-2 border-secondary-container bg-surface-container-lowest aspect-square flex flex-col items-center justify-center p-stack-md relative overflow-hidden">
-                <div class="absolute inset-0 opacity-[0.08]">
-                    <img alt="AI Hub" class="w-full h-full object-cover grayscale" src="images/st1.jpg/photo-1618005182384-a83a8bd57fbe?w=400&q=80"/>
+        <!-- =================【狀態一：集章進行中畫面】================= -->
+        <div id="view-collecting" class="block">
+            <!-- 活動標題區 -->
+            <section class="mb-stack-xl max-w-2xl fade-in">
+                <div id="event-tag" class="inline-block bg-black text-white px-3 py-1 mb-stack-sm font-label-caps text-[11px] uppercase tracking-widest font-bold">
+                    LOADING...
                 </div>
-                <span class="material-symbols-outlined text-secondary-container text-4xl mb-2" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
-                <span class="font-label-caps text-label-caps text-center tracking-wider z-10">AI 神經樞紐</span>
-            </div>
+                <h1 id="event-title" class="font-display text-[36px] md:text-[42px] font-bold tracking-tight text-black mb-stack-sm">
+                    載入中...
+                </h1>
+                <p id="event-desc" class="font-body-lg text-[16px] text-on-surface-variant leading-relaxed">
+                    請稍候，正在開啟活動集章面板...
+                </p>
+            </section>
 
-            <!-- 勳章 2 -->
-            <div class="stamp-grid-item border-2 border-secondary-container bg-surface-container-lowest aspect-square flex flex-col items-center justify-center p-stack-md relative overflow-hidden">
-                <div class="absolute inset-0 opacity-[0.08]">
-                    <img alt="Quantum Lab" class="w-full h-full object-cover grayscale" src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?w=400&q=80"/>
+            <!-- 進度顯示 -->
+            <section class="mb-stack-xl flex flex-col gap-2 fade-in">
+                <p class="font-label-caps text-[11px] font-bold tracking-wider text-on-surface-variant uppercase">目前集章進度</p>
+                <div class="flex items-baseline gap-2">
+                    <span class="font-display text-[48px] font-bold leading-none" id="stamps-count">0</span>
+                    <span class="font-headline-md text-[18px] font-medium text-on-surface-variant" id="stamps-total">/ 已完成 6 個關卡</span>
                 </div>
-                <span class="material-symbols-outlined text-secondary-container text-4xl mb-2" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
-                <span class="font-label-caps text-label-caps text-center tracking-wider z-10">量子實驗室</span>
-            </div>
+            </section>
 
-            <!-- 勳章 3 -->
-            <div class="stamp-grid-item border-2 border-secondary-container bg-surface-container-lowest aspect-square flex flex-col items-center justify-center p-stack-md relative overflow-hidden">
-                <div class="absolute inset-0 opacity-[0.08]">
-                    <img alt="Web3 Base" class="w-full h-full object-cover grayscale" src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&q=80"/>
+            <!-- 進行中的關卡清單網格 -->
+            <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="station-grid">
+                <!-- 由 JS 動態生成關卡 -->
+            </section>
+        </div>
+
+
+        <!-- =================【狀態二：全關卡達成紀念畫面（圖片_3.png）】================= -->
+        <div id="view-completed" class="hidden">
+            <!-- 英雄大圖與祝賀 -->
+            <section class="flex flex-col items-center text-center mb-stack-xl fade-in">
+                <div class="w-24 h-24 bg-primary flex items-center justify-center mb-stack-md">
+                    <span class="material-symbols-outlined text-on-primary text-[48px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
                 </div>
-                <span class="material-symbols-outlined text-secondary-container text-4xl mb-2" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
-                <span class="font-label-caps text-label-caps text-center tracking-wider z-10">WEB3 創新基地</span>
-            </div>
+                <h1 class="font-display text-headline-lg-mobile md:text-display font-bold text-black mb-stack-sm">所有關卡皆已完成！</h1>
+                <p id="completed-congrats" class="font-body-lg text-on-surface-variant max-w-2xl px-4">
+                    恭喜你！你已成功探索此活動的所有創新中心。你的好奇心與探索值得這份專屬榮耀。
+                </p>
+            </section>
 
-            <!-- 勳章 4 -->
-            <div class="stamp-grid-item border-2 border-secondary-container bg-surface-container-lowest aspect-square flex flex-col items-center justify-center p-stack-md relative overflow-hidden">
-                <div class="absolute inset-0 opacity-[0.08]">
-                    <img alt="Green Tech" class="w-full h-full object-cover grayscale" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&q=80"/>
+            <!-- 六大勳章牆（對應圖片_3.png 的極簡方格質感） -->
+            <section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-gutter mb-stack-xl fade-in" id="badge-wall">
+                <!-- 由 JS 自動填入已點亮的勳章 -->
+            </section>
+
+            <!-- 兌換與操作區 -->
+            <section class="max-w-md mx-auto text-center fade-in">
+                <button onclick="alert('🎉 獎勵兌換成功！請向現場工作人員領取您的限量精美紀念品。')" class="w-full bg-primary text-on-primary font-label-caps text-label-caps py-6 px-stack-lg border border-primary hover:bg-neutral-800 transition-all duration-300 mb-stack-md flex items-center justify-center gap-2 tracking-widest font-bold">
+                    兌換專屬獎勵 (REDEEM REWARDS)
+                    <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+                </button>
+                <div class="flex flex-col md:flex-row gap-stack-md justify-center text-sm">
+                    <a class="text-on-surface-variant hover:text-primary underline flex items-center justify-center gap-1 cursor-pointer" href="#">
+                        <span class="material-symbols-outlined text-[14px]">share</span> 分享輝煌成就
+                    </a>
+                    <a class="text-on-surface-variant hover:text-primary underline flex items-center justify-center gap-1 cursor-pointer" href="#">
+                        <span class="material-symbols-outlined text-[14px]">grid_view</span> 查看榮譽證書
+                    </a>
                 </div>
-                <span class="material-symbols-outlined text-secondary-container text-4xl mb-2" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
-                <span class="font-label-caps text-label-caps text-center tracking-wider z-10">綠色永續科技</span>
-            </div>
+            </section>
+        </div>
 
-            <!-- 勳章 5 -->
-            <div class="stamp-grid-item border-2 border-secondary-container bg-surface-container-lowest aspect-square flex flex-col items-center justify-center p-stack-md relative overflow-hidden">
-                <div class="absolute inset-0 opacity-[0.08]">
-                    <img alt="Data Station" class="w-full h-full object-cover grayscale" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&q=80"/>
-                </div>
-                <span class="material-symbols-outlined text-secondary-container text-4xl mb-2" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
-                <span class="font-label-caps text-label-caps text-center tracking-wider z-10">數據流傳輸站</span>
-            </div>
-
-            <!-- 勳章 6 -->
-            <div class="stamp-grid-item border-2 border-secondary-container bg-surface-container-lowest aspect-square flex flex-col items-center justify-center p-stack-md relative overflow-hidden">
-                <div class="absolute inset-0 opacity-[0.08]">
-                    <img alt="Robotics" class="w-full h-full object-cover grayscale" src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&q=80"/>
-                </div>
-                <span class="material-symbols-outlined text-secondary-container text-4xl mb-2" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
-                <span class="font-label-caps text-label-caps text-center tracking-wider z-10">機器人展演區</span>
-            </div>
-
-        </section>
-
-        <!-- 行動呼籲與證書操作區 -->
-        <section class="max-w-md mx-auto text-center fade-in" style="animation-delay: 0.5s;">
-            <button onclick="alert('🎉 獎勵兌換成功！請向大會工作人員領取您的限量精美紀念品。')" class="w-full bg-primary text-on-primary font-label-caps text-label-caps py-6 px-stack-lg border border-primary hover:bg-neutral-800 transition-all duration-300 mb-stack-md flex items-center justify-center gap-2 tracking-widest">
-                兌換專屬獎勵 (REDEEM REWARDS)
-                <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
-            </button>
-            <div class="flex flex-col md:flex-row gap-stack-md justify-center">
-                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary underline flex items-center justify-center gap-1 cursor-pointer" href="#">
-                    <span class="material-symbols-outlined text-[14px]" data-icon="share">share</span>
-                    分享輝煌成就
-                </a>
-                <a class="font-label-caps text-label-caps text-on-surface-variant hover:text-primary underline flex items-center justify-center gap-1 cursor-pointer" href="#">
-                    <span class="material-symbols-outlined text-[14px]" data-icon="grid_view">grid_view</span>
-                    查看榮譽證書
-                </a>
-            </div>
-        </section>
     </main>
-
-    <!-- 慶賀背景微弱底圖圖層（全畫面淡淡的網格幾何感） -->
-    <div class="fixed inset-0 -z-10 opacity-[0.02] pointer-events-none">
-        <img alt="Celebration Pattern" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200"/>
-    </div>
 
     <!-- 頁尾 -->
     <footer class="w-full mt-stack-xl bg-surface-container-lowest border-t border-outline-variant">
         <div class="flex flex-col md:flex-row justify-between items-center py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto gap-stack-md">
-            <div class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-bold">
+            <div class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-bold text-xs">
                 STAMPS EVENT CRAFT 數位集章系統
             </div>
-            <div class="flex gap-stack-md">
-                <a class="font-label-sm text-label-sm text-on-surface-variant hover:underline transition-all cursor-pointer" href="#">隱私權政策</a>
-                <a class="font-label-sm text-label-sm text-on-surface-variant hover:underline transition-all cursor-pointer" href="#">服務條款</a>
-                <a class="font-label-sm text-label-sm text-on-surface-variant hover:underline transition-all cursor-pointer" href="#">聯絡客服</a>
-            </div>
             <div class="font-label-sm text-label-sm text-on-surface">
-                © 2024 Event Craft. 保留所有權利。
+                © 2026 Event Craft. 保留所有權利。
             </div>
         </div>
     </footer>
 
+    <!-- 工作人員驗證彈窗 -->
+    <div id="stamp-modal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-xs flex items-center justify-center z-[200] p-margin-mobile">
+        <div class="bg-white border-2 border-black p-gutter max-w-sm w-full rounded-none shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-black">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="text-left">
+                <div class="text-[11px] font-bold text-[#316bf3] mb-1 uppercase tracking-wider">關卡工作人員驗證</div>
+                <h3 id="modal-station-name" class="text-[18px] font-bold mb-2 text-black">關卡名稱</h3>
+                <p id="modal-station-desc" class="text-[14px] text-slate-500 mb-4">任務描述...</p>
+                
+                <div class="mb-4">
+                    <label class="block text-[12px] font-semibold text-slate-700 mb-2">輸入現場工作人員認證碼：</label>
+                    <input type="password" id="modal-passcode" inputmode="numeric" placeholder="••••" class="w-full border border-slate-300 bg-slate-50 p-3 text-center tracking-widest font-bold text-lg focus:outline-none focus:border-black rounded-none">
+                </div>
+                <button onclick="verifyPasscode()" class="w-full py-3 bg-black text-white text-[12px] font-bold tracking-widest hover:bg-neutral-800 transition-colors rounded-none">
+                    確認蓋章驗證 (VERIFY)
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 背景幾何微弱紋理 -->
+    <div class="fixed inset-0 -z-10 opacity-[0.02] pointer-events-none">
+        <img alt="Grid Pattern" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200"/>
+    </div>
+
+    <!-- =================【核心邏輯控制區】================= -->
     <script>
-        // 勳章卡片移入的邊框微互動效果
-        document.querySelectorAll('.stamp-grid-item').forEach((item, index) => {
-            item.addEventListener('mouseenter', () => {
-                item.style.borderColor = '#000000';
+        /**
+         * 💡 很多活動都要用？改這裡就好了！
+         * 你可以隨時複製這份檔案，把下面的 CONFIG 內容改成新活動的資訊。
+         */
+        const CONFIG = {
+            storageKey: "event_stamp_system_save_data_01", // 每個活動的快取專屬 Key（辦新活動時改掉這裡，進度就會洗牌）
+            tag: "活動實境解謎挑戰",
+            title: "2024 現代科技峰會",
+            desc: "探索創新中心、收集數位印章，成功集滿所有徽章後，即可現場解鎖專屬與會者限定的大會榮耀獎勵！",
+            congrats: "恭喜你！你已成功探索 2024 現代科技峰會的所有創新中心。你的好奇心與探索值得這份專屬榮耀。",
+            stations: [
+                { id: "st1", name: "AI 神經樞紐", desc: "親眼見證全新神經處理單元（NPU）與互動式 AI 介面的現場技術演示。", code: "1111", img: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&q=80" },
+                { id: "st2", name: "量子實驗室", desc: "親自體驗次世代觸覺回饋裝置，並動手操作最新的硬體原型機架構。", code: "2222", img: "https://images.unsplash.com/photo-1507668077129-56e32842fceb?w=500&q=80" },
+                { id: "st3", name: "WEB3 創新基地", desc: "加入由首席產品設計師親自主持的 10 分鐘快速原型產品設計體驗。", code: "3333", img: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=500&q=80" },
+                { id: "st4", name: "綠色永續科技", desc: "深入了解驅動本次活動基礎數據骨幹的去中心化儲存協定技術。", code: "4444", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=500&q=80" },
+                { id: "st5", name: "數據流傳輸站", desc: "探索現代科技如何將大型數位基礎設施的碳足跡與能耗降低 40%。", code: "5555", img: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&q=80" },
+                { id: "st6", name: "機器人展演區", desc: "在專屬的安靜交流區中，與科技產業資深前輩進行一對一深度職涯對談。", code: "6666", img: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=500&q=80" }
+            ]
+        };
+
+        // 從 LocalStorage 載入玩家資料
+        let userProgress = JSON.parse(localStorage.getItem(CONFIG.storageKey)) || {};
+        let activeStationId = null;
+
+        function init() {
+            // 寫入文字配置
+            document.getElementById('event-tag').innerText = CONFIG.tag;
+            document.getElementById('event-title').innerText = CONFIG.title;
+            document.getElementById('event-desc').innerText = CONFIG.desc;
+            document.getElementById('completed-congrats').innerText = CONFIG.congrats;
+            document.getElementById('stamps-total').innerText = `/ 已完成 ${CONFIG.stations.length} 個關卡`;
+
+            renderGrid();
+            renderBadgeWall();
+            updateProgress();
+        }
+
+        // 渲染「進行中」的卡片列表
+        function renderGrid() {
+            const grid = document.getElementById('station-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            CONFIG.stations.forEach(st => {
+                const isStamped = userProgress[st.id] === true;
+                const card = document.createElement('div');
+                card.className = `station-card bg-white border ${isStamped ? 'border-secondary-container ring-1 ring-secondary-container' : 'border-outline-variant'} p-stack-md flex flex-col h-full rounded-none`;
+                
+                card.innerHTML = `
+                    <div class="relative aspect-video mb-stack-md overflow-hidden bg-slate-100">
+                        <img alt="${st.name}" class="w-full h-full object-cover ${isStamped ? '' : 'grayscale opacity-60'}" src="${st.img}"/>
+                        <div class="absolute top-4 right-4 bg-secondary-container text-white w-10 h-10 flex items-center justify-center rounded-none transition-opacity ${isStamped ? 'opacity-100' : 'opacity-0'}">
+                            <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+                        </div>
+                    </div>
+                    <div class="flex-grow">
+                        <h3 class="font-bold text-[18px] text-black mb-1">${st.name}</h3>
+                        <p class="text-[14px] text-on-surface-variant mb-4 leading-relaxed">${st.desc}</p>
+                    </div>
+                    ${isStamped 
+                        ? `<button class="w-full py-4 bg-surface-variant text-on-surface-variant font-bold text-[12px] tracking-widest cursor-default" disabled>已成功蓋章 (STAMPED)</button>`
+                        : `<button onclick="openStampModal('${st.id}')" class="w-full py-4 bg-primary text-on-primary font-bold text-[12px] tracking-widest hover:bg-neutral-800 transition-colors">點此蓋章驗證 (STAMP HERE)</button>`
+                    }
+                `;
+                grid.appendChild(card);
             });
-            item.addEventListener('mouseleave', () => {
-                item.style.borderColor = '#316bf3';
+        }
+
+        // 渲染「完成畫面」的方格勳章牆（對應 圖片_3.png）
+        function renderBadgeWall() {
+            const wall = document.getElementById('badge-wall');
+            if (!wall) return;
+            wall.innerHTML = '';
+
+            CONFIG.stations.forEach(st => {
+                const badge = document.createElement('div');
+                badge.className = "stamp-grid-item border-2 border-secondary-container bg-surface-container-lowest aspect-square flex flex-col items-center justify-center p-stack-md relative overflow-hidden select-none";
+                badge.innerHTML = `
+                    <div class="absolute inset-0 opacity-[0.06] pointer-events-none">
+                        <img class="w-full h-full object-cover grayscale" src="${st.img}" />
+                    </div>
+                    <span class="material-symbols-outlined text-secondary-container text-4xl mb-2" style="font-variation-settings: 'FILL' 1;">verified</span>
+                    <span class="font-label-caps text-label-caps font-bold text-center tracking-wider text-black z-10">${st.name}</span>
+                `;
+                wall.appendChild(badge);
             });
-            // 初始交錯載入動畫延遲時間
-            item.style.transitionDelay = `${index * 0.05}s`;
-        });
+        }
+
+        // 狀態與視圖核心控制切換
+        function updateProgress() {
+            const total = CONFIG.stations.length;
+            const completed = CONFIG.stations.filter(st => userProgress[st.id] === true).length;
+            const percentage = (completed / total) * 100;
+
+            if(document.getElementById('stamps-count')) {
+                document.getElementById('stamps-count').innerText = completed;
+            }
+            document.getElementById('global-progress-bar').style.width = `${percentage}%`;
+
+            const navCol = document.getElementById('nav-collection');
+
+            // 如果全部關卡都過關，就顯示完成紀念畫面，否則留在收集模式
+            if (completed === total) {
+                document.getElementById('view-collecting').className = "hidden";
+                document.getElementById('view-completed').className = "block";
+                if(navCol) navCol.className = "font-headline-md text-headline-md text-primary border-b-2 border-primary pb-1";
+            } else {
+                document.getElementById('view-collecting').className = "block";
+                document.getElementById('view-completed').className = "hidden";
+                if(navCol) navCol.className = "font-headline-md text-headline-md text-on-surface-variant hover:text-primary";
+            }
+        }
+
+        function openStampModal(stationId) {
+            activeStationId = stationId;
+            const st = CONFIG.stations.find(item => item.id === stationId);
+            if (!st) return;
+
+            document.getElementById('modal-station-name').innerText = st.name;
+            document.getElementById('modal-station-desc').innerText = st.desc;
+            document.getElementById('stamp-modal').classList.remove('hidden');
+            setTimeout(() => document.getElementById('modal-passcode').focus(), 50);
+        }
+
+        function closeModal() {
+            document.getElementById('stamp-modal').classList.add('hidden');
+            document.getElementById('modal-passcode').value = '';
+            activeStationId = null;
+        }
+
+        function verifyPasscode() {
+            const inputCode = document.getElementById('modal-passcode').value;
+            const st = CONFIG.stations.find(item => item.id === activeStationId);
+
+            if (st && inputCode === st.code) {
+                userProgress[activeStationId] = true;
+                localStorage.setItem(CONFIG.storageKey, JSON.stringify(userProgress));
+                
+                closeModal();
+                renderGrid();
+                updateProgress();
+            } else {
+                alert('❌ 認證碼錯誤！請詢問現場關卡工作人員。');
+            }
+        }
+
+        // 💡 點擊標題 "Stamps" 即可重設，方便你在測試不同的活動切換！
+        function resetProgressForTesting() {
+            if(confirm("【開發測試提示】是否要清空目前的集章進度，退回「集章中」畫面進行測試？")) {
+                localStorage.removeItem(CONFIG.storageKey);
+                userProgress = {};
+                init();
+            }
+        }
+
+        window.onload = init;
     </script>
 </body>
 </html>
