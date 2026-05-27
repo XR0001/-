@@ -81,15 +81,12 @@
 </head>
 <body class="bg-background text-on-background font-body-md antialiased">
 
-    <!-- 頂端全域進度條 -->
     <div class="fixed top-0 left-0 w-full h-[2px] bg-outline-variant z-[100]">
         <div id="global-progress-bar" class="success-line h-full bg-secondary-container" style="width: 0%;"></div>
     </div>
 
-    <!-- 頂部導覽列 -->
     <header class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant">
         <div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-            <!-- 💡 測試密技：點擊這個 Stamps 標題可以重設清除快取 -->
             <div onclick="resetProgressForTesting()" class="font-display text-display tracking-tighter text-primary cursor-pointer active:opacity-70 select-none">
                 Stamps
             </div>
@@ -99,18 +96,14 @@
                 <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">兌換獎勵</a>
             </nav>
             <div class="flex items-center gap-stack-md">
-                <span class="material-symbols-outlined text-primary cursor-pointer" data-icon="account_circle">account_circle</span>
                 <span class="md:hidden material-symbols-outlined text-primary cursor-pointer" data-icon="menu">menu</span>
             </div>
         </div>
     </header>
 
-    <!-- 主主頁面區 -->
     <main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-xl">
         
-        <!-- =================【狀態一：集章進行中畫面】================= -->
         <div id="view-collecting" class="block">
-            <!-- 活動標題區 -->
             <section class="mb-stack-xl max-w-2xl fade-in">
                 <div id="event-tag" class="inline-block bg-black text-white px-3 py-1 mb-stack-sm font-label-caps text-[11px] uppercase tracking-widest font-bold">
                     LOADING...
@@ -123,7 +116,6 @@
                 </p>
             </section>
 
-            <!-- 進度顯示 -->
             <section class="mb-stack-xl flex flex-col gap-2 fade-in">
                 <p class="font-label-caps text-[11px] font-bold tracking-wider text-on-surface-variant uppercase">目前集章進度</p>
                 <div class="flex items-baseline gap-2">
@@ -132,16 +124,12 @@
                 </div>
             </section>
 
-            <!-- 進行中的關卡清單網格 -->
             <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter" id="station-grid">
-                <!-- 由 JS 動態生成關卡 -->
-            </section>
+                </section>
         </div>
 
 
-        <!-- =================【狀態二：全關卡達成紀念畫面（圖片_3.png）】================= -->
         <div id="view-completed" class="hidden">
-            <!-- 英雄大圖與祝賀 -->
             <section class="flex flex-col items-center text-center mb-stack-xl fade-in">
                 <div class="w-24 h-24 bg-primary flex items-center justify-center mb-stack-md">
                     <span class="material-symbols-outlined text-on-primary text-[48px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
@@ -152,12 +140,9 @@
                 </p>
             </section>
 
-            <!-- 六大勳章牆（對應圖片_3.png 的極簡方格質感） -->
             <section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-gutter mb-stack-xl fade-in" id="badge-wall">
-                <!-- 由 JS 自動填入已點亮的勳章 -->
-            </section>
+                </section>
 
-            <!-- 兌換與操作區 -->
             <section class="max-w-md mx-auto text-center fade-in">
                 <button onclick="alert('獎勵兌換成功！請向現場工作人員領取您的限量精美紀念品。')" class="w-full bg-primary text-on-primary font-label-caps text-label-caps py-6 px-stack-lg border border-primary hover:bg-neutral-800 transition-all duration-300 mb-stack-md flex items-center justify-center gap-2 tracking-widest font-bold">
                     兌換專屬獎勵 (REDEEM REWARDS)
@@ -176,7 +161,6 @@
 
     </main>
 
-    <!-- 頁尾 -->
     <footer class="w-full mt-stack-xl bg-surface-container-lowest border-t border-outline-variant">
         <div class="flex flex-col md:flex-row justify-between items-center py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto gap-stack-md">
             <div class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-bold text-xs">
@@ -188,7 +172,6 @@
         </div>
     </footer>
 
-    <!-- 工作人員驗證彈窗 -->
     <div id="stamp-modal" class="hidden fixed inset-0 bg-black/50 backdrop-blur-xs flex items-center justify-center z-[200] p-margin-mobile">
         <div class="bg-white border-2 border-black p-gutter max-w-sm w-full rounded-none shadow-2xl relative">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-black">
@@ -210,12 +193,10 @@
         </div>
     </div>
 
-    <!-- 背景幾何微弱紋理 -->
     <div class="fixed inset-0 -z-10 opacity-[0.02] pointer-events-none">
         <img alt="Grid Pattern" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200"/>
     </div>
 
-    <!-- =================【核心邏輯控制區】================= -->
     <script>
         /**
          * 💡 很多活動都要用？改這裡就好了！
