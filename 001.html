@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>活動闖關集章趣</title>
-    <!-- 引入 Tailwind CSS 與 FontAwesome 圖標 -->
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         .stamp-active { animation: pop 0.5s ease-out forwards; }
@@ -17,12 +16,10 @@
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between font-sans">
 
-    <!-- Header 頂部 -->
     <header class="bg-indigo-600 text-white text-center py-6 px-4 shadow-md sticky top-0 z-10">
-        <h1 id="event-title" class="text-2xl font-bold tracking-wider">冒險闖關戰</h1>
+        <h1 id="event-title" class="text-2xl font-bold tracking-wider">🌟 加載中...</h1>
         <p class="text-indigo-200 text-sm mt-1">探索會場各處，收集蓋章換好禮！</p>
         
-        <!-- 進度條 -->
         <div class="mt-4 max-w-md mx-auto bg-indigo-800 rounded-full p-1 shadow-inner relative">
             <div id="progress-bar" class="bg-amber-400 h-4 rounded-full transition-all duration-500 ease-out text-xs text-indigo-900 font-bold flex items-center justify-center" style="width: 0%">
                 0%
@@ -31,60 +28,47 @@
         <p id="progress-text" class="text-xs mt-2 text-indigo-100">目前進度：0 / 0</p>
     </header>
 
-    <!-- Main 關卡區 -->
     <main class="container mx-auto max-w-md px-4 py-6 flex-grow">
-        <!-- 兌獎成功公告 -->
-        <div id="prize-section" class="hidden mb-6 bg-gradient-to-r from-amber-400 to-orange-500 text-white p-4 rounded-2xl shadow-lg text-center animate-bounce">
+        <div id="prize-section" class="hidden mb-6 bg-gradient-to-r from-amber-400 to-orange-500 text-white p-4 rounded-2xl shadow-lg text-center">
             <h3 class="text-lg font-bold"><i class="fas fa-trophy mr-2"></i>恭喜完成所有關卡！</h3>
             <p class="text-sm mt-1">請前往服務台出示此畫面兌換精美禮品 🎁</p>
         </div>
 
-        <!-- 關卡網格 -->
         <div id="checkpoint-grid" class="grid grid-cols-2 gap-4">
-            <!-- 關卡卡片會由 JS 動態生成 -->
-        </div>
+            </div>
     </main>
 
-    <!-- Footer 底部 -->
     <footer class="text-center py-4 text-xs text-slate-400 border-t border-slate-200 bg-white">
         <button onclick="resetGame()" class="text-red-400 hover:text-red-600 font-semibold mb-2 block mx-auto"><i class="fas fa-trash-alt mr-1"></i>重置所有進度</button>
         © 2026 數位闖關系統版權所有
     </footer>
 
-    <!-- 蓋章驗證彈窗 (Modal) -->
-    <div id="stamp-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-xs flex items-center justify-center z-50 p-4">
+    <div id="stamp-modal" class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-50 p-4">
         <div class="bg-white rounded-2xl shadow-2xl w-full max-w-xs p-6 relative overflow-hidden">
             <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 text-xl"><i class="fas fa-times"></i></button>
             
             <div class="text-center">
-                <div id="modal-icon" class="text-4xl text-indigo-500 mb-2"></div>
+                <div id="modal-icon" class="text-4xl text-indigo-500 mb-2 flex justify-center"></div>
                 <h3 id="modal-title" class="text-xl font-bold text-slate-800">關卡名稱</h3>
                 <p id="modal-desc" class="text-slate-500 text-sm mt-2">關卡敘述與任務說明...</p>
                 
-                <!-- 輸入密碼區（模擬工作人員現場蓋章） -->
                 <div id="modal-action-zone" class="mt-6">
-                    <label class="block text-xs text-slate-400 mb-2 text-left font-medium">請讓現場工作人員輸入蓋章密碼：</label>
-                    <input type="password" id="staff-code" placeholder="請輸入 4 位數密碼" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-center tracking-widest text-lg focus:outline-hidden focus:border-indigo-500 mb-3" maxlength="6">
-                    <button id="submit-stamp-btn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 rounded-lg transition-colors">
-                        確認蓋章 <i class="fas fa-stamp ml-1"></i>
-                    </button>
-                </div>
+                    </div>
             </div>
         </div>
     </div>
 
-    <!-- JavaScript 邏輯控制 -->
     <script>
         // ==================== 🛠️ 自由組合配置區 ====================
-        // 你可以在這裡自由增減關卡、修改名稱、描述與工作人員密碼
+        // 在這裡修改密碼、文字。如果要用自訂圖片，請把 img 欄位改成圖片路徑（如 "img/p1.png"）
         const CONFIG = {
             title: "🌟 2026 歡樂嘉年華：冒險闖關戰",
             checkpoints: [
-                { id: "cp1", name: "關卡一：服務台報到", desc: "找到主服務台，向工作人員打招呼即可蓋章。", code: "1111", icon: "fa-info-circle" },
-                { id: "cp2", name: "關卡二：科技體驗區", desc: "體驗最新 AI 互動裝置，完成指定關卡。", code: "2222", icon: "fa-robot" },
-                { id: "cp3", name: "關卡三：美食攤位消費", desc: "在美食區任意攤位消費不限金額即可蓋章。", code: "3333", icon: "fa-utensils" },
-                { id: "cp4", name: "關卡四：拍照打卡牆", desc: "在主題背板前拍照並上傳社群平台，出示給人員看。", code: "4444", icon: "fa-camera" },
-                { id: "cp5", name: "關卡五：問卷大調查", desc: "掃描填寫活動滿意度問卷，即可獲得最後徽章。", code: "5555", icon: "fa-file-alt" }
+                { id: "cp1", name: "關卡一：服務台報到", desc: "找到主服務台，向工作人員打招呼即可蓋章。", code: "1111", img: "", icon: "fa-info-circle" },
+                { id: "cp2", name: "關卡二：科技體驗區", desc: "體驗最新 AI 互動裝置，完成指定關卡。", code: "2222", img: "", icon: "fa-robot" },
+                { id: "cp3", name: "關卡三：美食攤位消費", desc: "在美食區任意攤位消費不限金額即可蓋章。", code: "3333", img: "", icon: "fa-utensils" },
+                { id: "cp4", name: "關卡四：拍照打卡牆", desc: "在主題背板前拍照並上傳社群平台，出示給人員看。", code: "4444", img: "", icon: "fa-camera" },
+                { id: "cp5", name: "關卡五：問卷大調查", desc: "掃描填寫活動滿意度問卷，即可獲得最後徽章。", code: "5555", img: "", icon: "fa-file-alt" }
             ]
         };
         // ==========================================================
@@ -92,14 +76,12 @@
         let userProgress = JSON.parse(localStorage.getItem('event_progress')) || {};
         let currentActiveId = null;
 
-        // 初始化網頁
         function init() {
             document.getElementById('event-title').innerText = CONFIG.title;
             renderGrid();
             updateProgress();
         }
 
-        // 渲染關卡 Grid
         function renderGrid() {
             const grid = document.getElementById('checkpoint-grid');
             grid.innerHTML = '';
@@ -107,21 +89,23 @@
             CONFIG.checkpoints.forEach((cp) => {
                 const isStamped = userProgress[cp.id] === true;
                 const card = document.createElement('div');
-                card.className = `bg-white p-5 rounded-2xl shadow-xs border transition-all duration-300 cursor-pointer flex flex-col items-center justify-center min-h-[140px] text-center relative overflow-hidden ${isStamped ? 'border-emerald-200 bg-emerald-50/30' : 'border-slate-100 hover:shadow-md'}`;
+                card.className = `bg-white p-5 rounded-2xl shadow-sm border transition-all duration-300 cursor-pointer flex flex-col items-center justify-center min-h-[140px] text-center relative overflow-hidden ${isStamped ? 'border-emerald-200 bg-emerald-50' : 'border-slate-100 hover:shadow-md'}`;
                 card.onclick = () => openModal(cp);
+
+                // 判斷是用自訂圖片還是 FontAwesome 圖標
+                let mediaHtml = cp.img ? `<img src="${cp.img}" class="w-16 h-16 object-contain mb-2 ${isStamped ? '' : 'grayscale opacity-50'}">` : `<div class="${isStamped ? 'text-emerald-500' : 'text-slate-400'} text-3xl mb-2"><i class="fas ${cp.icon}"></i></div>`;
 
                 if (isStamped) {
                     card.innerHTML = `
-                        <div class="text-emerald-500 text-3xl mb-2"><i class="fas ${cp.icon}"></i></div>
+                        ${mediaHtml}
                         <span class="font-bold text-slate-700 text-sm">${cp.name}</span>
-                        <!-- 蓋章視覺效果 -->
                         <div class="absolute inset-0 flex items-center justify-center bg-emerald-500/10 pointer-events-none">
                             <div class="stamp-active border-4 border-emerald-500 text-emerald-500 font-black rounded-md px-2 py-1 text-xs uppercase tracking-wider transform -rotate-12 bg-white/90 shadow-md">已蓋章 PASS</div>
                         </div>
                     `;
                 } else {
                     card.innerHTML = `
-                        <div class="text-slate-400 text-3xl mb-2"><i class="fas ${cp.icon}"></i></div>
+                        ${mediaHtml}
                         <span class="font-medium text-slate-600 text-sm">${cp.name}</span>
                         <div class="mt-2 text-xs text-slate-400"><i class="fas fa-lock mr-1"></i>尚未解鎖</div>
                     `;
@@ -130,7 +114,6 @@
             });
         }
 
-        // 更新進度條與狀態
         function updateProgress() {
             const total = CONFIG.checkpoints.length;
             const completed = CONFIG.checkpoints.filter(cp => userProgress[cp.id] === true).length;
@@ -141,7 +124,6 @@
             progressBar.innerText = `${percentage}%`;
             document.getElementById('progress-text').innerText = `目前進度：${completed} / ${total}`;
 
-            // 檢查是否全通關
             const prizeSection = document.getElementById('prize-section');
             if (completed === total && total > 0) {
                 prizeSection.classList.remove('hidden');
@@ -150,12 +132,13 @@
             }
         }
 
-        // 開啟彈窗
         function openModal(cp) {
             currentActiveId = cp.id;
             document.getElementById('modal-title').innerText = cp.name;
             document.getElementById('modal-desc').innerText = cp.desc;
-            document.getElementById('modal-icon').innerHTML = `<i class="fas ${cp.icon}"></i>`;
+            
+            let mediaHtml = cp.img ? `<img src="${cp.img}" class="w-20 h-20 object-contain mx-auto mb-2">` : `<i class="fas ${cp.icon}"></i>`;
+            document.getElementById('modal-icon').innerHTML = mediaHtml;
             
             const actionZone = document.getElementById('modal-action-zone');
             const isStamped = userProgress[cp.id] === true;
@@ -165,7 +148,7 @@
             } else {
                 actionZone.innerHTML = `
                     <label class="block text-xs text-slate-400 mb-2 text-left font-medium">請讓現場工作人員輸入蓋章密碼：</label>
-                    <input type="password" id="staff-code" placeholder="請輸入密碼" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-center tracking-widest text-lg focus:outline-hidden focus:border-indigo-500 mb-3" maxlength="6">
+                    <input type="password" id="staff-code" placeholder="請輸入密碼" class="w-full border border-slate-300 rounded-lg px-3 py-2 text-center tracking-widest text-lg focus:outline-none focus:border-indigo-500 mb-3" maxlength="6">
                     <button onclick="submitStamp()" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2.5 rounded-lg transition-colors">
                         確認蓋章 <i class="fas fa-stamp ml-1"></i>
                     </button>
@@ -175,13 +158,11 @@
             document.getElementById('stamp-modal').classList.remove('hidden');
         }
 
-        // 關閉彈窗
         function closeModal() {
             document.getElementById('stamp-modal').classList.add('hidden');
             currentActiveId = null;
         }
 
-        // 送出蓋章驗證
         function submitStamp() {
             const codeInput = document.getElementById('staff-code').value;
             const targetCp = CONFIG.checkpoints.find(cp => cp.id === currentActiveId);
@@ -194,14 +175,12 @@
                 updateProgress();
                 closeModal();
                 
-                // 震動回饋 (若手機支援)
                 if (navigator.vibrate) navigator.vibrate(100);
             } else {
                 alert('❌ 密碼錯誤！請引導現場工作人員協助輸入正確密碼。');
             }
         }
 
-        // 重置遊戲
         function resetGame() {
             if (confirm('確定要清除所有蓋章進度，重新開始嗎？')) {
                 userProgress = {};
@@ -210,7 +189,6 @@
             }
         }
 
-        // 啟動執行
         window.onload = init;
     </script>
 </body>
