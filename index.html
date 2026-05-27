@@ -130,19 +130,21 @@
 </head>
 <body class="bg-background text-on-background font-body-md antialiased">
 
+    <!-- 頂端全域進度條 -->
     <div class="fixed top-0 left-0 w-full h-[2px] bg-outline-variant z-[100]">
         <div class="success-line h-full bg-secondary-container"></div>
     </div>
 
-    <header class="w-full top-0 sticky z-50 bg-surface dark:bg-background border-b border-outline-variant dark:border-outline">
+    <!-- 頂部導覽列 -->
+    <header class="w-full top-0 sticky z-50 bg-surface border-b border-outline-variant">
         <div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
-            <div class="font-display text-display tracking-tighter text-primary dark:text-on-background cursor-pointer active:opacity-70 transition-opacity">
+            <div class="font-display text-display tracking-tighter text-primary cursor-pointer active:opacity-70 transition-opacity">
                 Stamps
             </div>
             <nav class="hidden md:flex items-center gap-stack-lg h-full">
-                <a class="font-headline-md text-headline-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 cursor-pointer" href="#">探索關卡</a>
-                <a class="font-headline-md text-headline-md text-primary dark:text-on-background border-b-2 border-primary pb-1 transition-colors duration-200 cursor-pointer" href="#">我的收藏</a>
-                <a class="font-headline-md text-headline-md text-on-surface-variant dark:text-on-tertiary-container hover:text-primary dark:hover:text-primary-fixed-dim transition-colors duration-200 cursor-pointer" href="#">兌換獎勵</a>
+                <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer" href="#">探索關卡</a>
+                <a class="font-headline-md text-headline-md text-primary border-b-2 border-primary pb-1 transition-colors duration-200 cursor-pointer" href="#">我的收藏</a>
+                <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary transition-colors duration-200 cursor-pointer" href="#">兌換獎勵</a>
             </nav>
             <div class="flex items-center gap-stack-md">
                 <span class="material-symbols-outlined text-primary cursor-pointer active:opacity-70 transition-opacity" data-icon="account_circle">account_circle</span>
@@ -151,8 +153,10 @@
         </div>
     </header>
 
+    <!-- 主內容區 -->
     <main class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-stack-xl">
         
+        <!-- 英雄慶賀區 -->
         <section class="flex flex-col items-center text-center mb-stack-xl fade-in" style="animation-delay: 0.1s;">
             <div class="w-24 h-24 bg-primary flex items-center justify-center mb-stack-md">
                 <span class="material-symbols-outlined text-on-primary text-[48px]" data-icon="workspace_premium" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
@@ -163,60 +167,68 @@
             </p>
         </section>
 
+        <!-- 六大勳章牆 -->
         <section class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-gutter mb-stack-xl fade-in" style="animation-delay: 0.3s;">
             
+            <!-- 勳章 1 -->
             <div class="stamp-grid-item border-2 border-secondary-container bg-surface-container-lowest aspect-square flex flex-col items-center justify-center p-stack-md relative overflow-hidden">
-                <div class="absolute inset-0 opacity-5">
-                    <img alt="Cyber Circuitry" class="w-full h-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLY3qTYelPKGkANd33y2OW2TRot_7U076FwFQzpG7NTTAC9maNcBYYKQz0BeITnZWVHhssYudXzsIme5ezycgD1KGOUA8vrJH0-rCIJFAtdgzU3aGx5PkDqHHr-Mg1RFxjpX02pKyNuYMQLmIoTYgQixB-mJWTHp2nj-_Dd7-tlVEtHRDHBxhPPfrnt-5AG6yaIhDkeQhl0-o-pce_WMukIksnrrZe9UnIftLdeH6uv5sZp1GnCyqhFiQdWIGabghuSmn08sOyUeVt"/>
+                <div class="absolute inset-0 opacity-[0.08]">
+                    <img alt="AI Hub" class="w-full h-full object-cover grayscale" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=400&q=80"/>
                 </div>
                 <span class="material-symbols-outlined text-secondary-container text-4xl mb-2" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
-                <span class="font-label-caps text-label-caps text-center tracking-wider">AI 神經樞紐</span>
+                <span class="font-label-caps text-label-caps text-center tracking-wider z-10">AI 神經樞紐</span>
             </div>
 
+            <!-- 勳章 2 -->
             <div class="stamp-grid-item border-2 border-secondary-container bg-surface-container-lowest aspect-square flex flex-col items-center justify-center p-stack-md relative overflow-hidden">
-                <div class="absolute inset-0 opacity-5">
-                    <img alt="Tech Interface" class="w-full h-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtktZ1c-XrWKMDXgxVb7fAlDaEUAlqzdqZThlCN_lGAD7wrIrFPIIJ8PUH3XnD806fXTvXkNbz_8O1Y5o0qFaluY-0de3u12TQ3BEZdLhwQOy9wsTpp0KdysYgCXqKnl5MZXSgpvHnKvV_cXiO6DvSXVb0wGavkMoSi1lGAwjHIY5kry_lmhpjy0jUBq0lWOtaH_hlsd8NFUILWVTPdsN8uQUcMjyWdAgQK9LVOCKUKp4VeH6XVT4imtFLCVrOlbNIsT0bszxs4Rom"/>
+                <div class="absolute inset-0 opacity-[0.08]">
+                    <img alt="Quantum Lab" class="w-full h-full object-cover grayscale" src="https://images.unsplash.com/photo-1507668077129-56e32842fceb?w=400&q=80"/>
                 </div>
                 <span class="material-symbols-outlined text-secondary-container text-4xl mb-2" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
-                <span class="font-label-caps text-label-caps text-center tracking-wider">量子實驗室</span>
+                <span class="font-label-caps text-label-caps text-center tracking-wider z-10">量子實驗室</span>
             </div>
 
+            <!-- 勳章 3 -->
             <div class="stamp-grid-item border-2 border-secondary-container bg-surface-container-lowest aspect-square flex flex-col items-center justify-center p-stack-md relative overflow-hidden">
-                <div class="absolute inset-0 opacity-5">
-                    <img alt="Digital Sphere" class="w-full h-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqpZX5lO87hOQWNaJFL9VLZ9sc4TlsqK6fW8t13p1SU6f8l3ac6xPrMZyeGLx715BW40sj7GmtvpQDlDNF78c-CbYFUBTzazd2oorAW9Nloh6KhAtlNVBy3gvzBVa8vBSagHs6quksE6MTNluZvGIObonLIMnPhRq3j5kLvD_MztC_Rv3e_k_kQuQh-8o1raDVdh1OGWtGMd6d9NGT4VTpxG8MYqeEnuWcBXvbUbImLcQXu8Tj-wgDdhhrCE_hPhsA8MKj-Ni3LzNw"/>
+                <div class="absolute inset-0 opacity-[0.08]">
+                    <img alt="Web3 Base" class="w-full h-full object-cover grayscale" src="https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=400&q=80"/>
                 </div>
                 <span class="material-symbols-outlined text-secondary-container text-4xl mb-2" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
-                <span class="font-label-caps text-label-caps text-center tracking-wider">WEB3 創新基地</span>
+                <span class="font-label-caps text-label-caps text-center tracking-wider z-10">WEB3 創新基地</span>
             </div>
 
+            <!-- 勳章 4 -->
             <div class="stamp-grid-item border-2 border-secondary-container bg-surface-container-lowest aspect-square flex flex-col items-center justify-center p-stack-md relative overflow-hidden">
-                <div class="absolute inset-0 opacity-5">
-                    <img alt="Sleek Laptop" class="w-full h-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA31JVbSsYf264LQT3JHrP7Hv6_RGTlCnbD00vScsvdUySUiiMH5kEayX82VtljGRiqdugGN5hYh7tw_ebeXGBGOpA8Y6rgYJnUoMCbvelxayUVoaoIAL4z5tJp-Z5sEBtb5c8K_K3u4RDIZHB73WI_oduSaznea6mdh7Fga_gY4-EB9t5kcyl2V4pArHjQHC4d9j5fP9fgklCxcjJCQboL3oN4LzaUOXS6RGfdoi-KTGU622jvmucwMzZPXWuJos1pCNpKETypWYVu"/>
+                <div class="absolute inset-0 opacity-[0.08]">
+                    <img alt="Green Tech" class="w-full h-full object-cover grayscale" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&q=80"/>
                 </div>
                 <span class="material-symbols-outlined text-secondary-container text-4xl mb-2" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
-                <span class="font-label-caps text-label-caps text-center tracking-wider">綠色永續科技</span>
+                <span class="font-label-caps text-label-caps text-center tracking-wider z-10">綠色永續科技</span>
             </div>
 
+            <!-- 勳章 5 -->
             <div class="stamp-grid-item border-2 border-secondary-container bg-surface-container-lowest aspect-square flex flex-col items-center justify-center p-stack-md relative overflow-hidden">
-                <div class="absolute inset-0 opacity-5">
-                    <img alt="Cloud Network" class="w-full h-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIq9LKn8O750illQeARzYFPq3v2EYl_NHNjMKAkwuh7LdgkpRRZ3HHJfVYETrn1-k0U7Ajs6Aokh_aTPGc7aTFv26gxO9InIiuFRnP2KA1jOKyA0ehhnDEfIga_-nizyypLDIiRj-fWl9kqILy_Lhk-5LU-kZHBalV_KxogyQMxHS_8dKO2Ffdz96tMmW9VdC7oRTXWLZqLWOkYQ4g99dS7K1yP4pl6UnIXTKgal1bt0QuR3oPq_igiEGcTEamrU3h7XVqYIxKkb3e"/>
+                <div class="absolute inset-0 opacity-[0.08]">
+                    <img alt="Data Station" class="w-full h-full object-cover grayscale" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&q=80"/>
                 </div>
                 <span class="material-symbols-outlined text-secondary-container text-4xl mb-2" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
-                <span class="font-label-caps text-label-caps text-center tracking-wider">數據流傳輸站</span>
+                <span class="font-label-caps text-label-caps text-center tracking-wider z-10">數據流傳輸站</span>
             </div>
 
+            <!-- 勳章 6 -->
             <div class="stamp-grid-item border-2 border-secondary-container bg-surface-container-lowest aspect-square flex flex-col items-center justify-center p-stack-md relative overflow-hidden">
-                <div class="absolute inset-0 opacity-5">
-                    <img alt="Robotics" class="w-full h-full object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCT_I5hit8NfOLAkBPTGAjJaAndY6OE322hsPijycs07Jp6LejhxRcscPtDkfy-ojqcyMbU-N6pCUXF3McVV-674pCcBvPpXISjbVpdD2dZltYNpakjpmwCKahmNkLoND0ik-aISVRHX7e0XtqG3Q0J8m2Tzh5o84WRHEISfzJ7p_1i4lfTfj_CHvVEYpwartv88oTBwK4T5cRECz1VuFZAibzXyOBxqzuTDIJYUq4Xkr6E-zlTGYjhRDQ_8qCfZXLGEf249_MhPa5v"/>
+                <div class="absolute inset-0 opacity-[0.08]">
+                    <img alt="Robotics" class="w-full h-full object-cover grayscale" src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&q=80"/>
                 </div>
                 <span class="material-symbols-outlined text-secondary-container text-4xl mb-2" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
-                <span class="font-label-caps text-label-caps text-center tracking-wider">機器人展演區</span>
+                <span class="font-label-caps text-label-caps text-center tracking-wider z-10">機器人展演區</span>
             </div>
 
         </section>
 
+        <!-- 行動呼籲與證書操作區 -->
         <section class="max-w-md mx-auto text-center fade-in" style="animation-delay: 0.5s;">
-            <button class="w-full bg-primary text-on-primary font-label-caps text-label-caps py-6 px-stack-lg border border-primary hover:bg-surface-container-highest hover:text-primary transition-all duration-300 mb-stack-md flex items-center justify-center gap-2 tracking-widest">
+            <button onclick="alert('🎉 獎勵兌換成功！請向大會工作人員領取您的限量精美紀念品。')" class="w-full bg-primary text-on-primary font-label-caps text-label-caps py-6 px-stack-lg border border-primary hover:bg-neutral-800 transition-all duration-300 mb-stack-md flex items-center justify-center gap-2 tracking-widest">
                 兌換專屬獎勵 (REDEEM REWARDS)
                 <span class="material-symbols-outlined text-[16px]" data-icon="arrow_forward">arrow_forward</span>
             </button>
@@ -233,21 +245,23 @@
         </section>
     </main>
 
-    <div class="fixed inset-0 -z-10 opacity-[0.03] pointer-events-none">
-        <img alt="Celebration Pattern" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC6VeByA6Us9tDMbJfDRiKqYrpyN_s49URdOkBrvaPQyR-PtJJxrD27JdkkN9doIG-rQCbIV6X6sn66VRBfgWxx5BGJ-7w6ZR_Sn5q6vQp8qAyvTLBgyYxM2qvwDdQDGFlNMNldczJl7pBKZC0VcjNQb8bPLSmDg4kP-TsbCZ10ln9aU9cVxy1nJktn4ZqSOGjeOFCtFO5wmZvP48trLfwc9K-5oK5pCp_TaAh6qu3LUEaDqgtULeazemoPagRYW9LcWg5abs5OJ8gP"/>
+    <!-- 慶賀背景微弱底圖圖層（全畫面淡淡的網格幾何感） -->
+    <div class="fixed inset-0 -z-10 opacity-[0.02] pointer-events-none">
+        <img alt="Celebration Pattern" class="w-full h-full object-cover" src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=1200"/>
     </div>
 
-    <footer class="w-full mt-stack-xl bg-surface-container-lowest dark:bg-tertiary-container border-t border-outline-variant dark:border-outline">
+    <!-- 頁尾 -->
+    <footer class="w-full mt-stack-xl bg-surface-container-lowest border-t border-outline-variant">
         <div class="flex flex-col md:flex-row justify-between items-center py-stack-lg px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto gap-stack-md">
             <div class="font-label-caps text-label-caps uppercase tracking-widest text-primary font-bold">
                 STAMPS EVENT CRAFT 數位集章系統
             </div>
             <div class="flex gap-stack-md">
-                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-tertiary-container hover:underline transition-all cursor-pointer" href="#">隱私權政策</a>
-                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-tertiary-container hover:underline transition-all cursor-pointer" href="#">服務條款</a>
-                <a class="font-label-sm text-label-sm text-on-surface-variant dark:text-on-tertiary-container hover:underline transition-all cursor-pointer" href="#">聯絡客服</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:underline transition-all cursor-pointer" href="#">隱私權政策</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:underline transition-all cursor-pointer" href="#">服務條款</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:underline transition-all cursor-pointer" href="#">聯絡客服</a>
             </div>
-            <div class="font-label-sm text-label-sm text-on-surface dark:text-on-tertiary-container">
+            <div class="font-label-sm text-label-sm text-on-surface">
                 © 2024 Event Craft. 保留所有權利。
             </div>
         </div>
