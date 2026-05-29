@@ -89,11 +89,6 @@
         <div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
             <div onclick="resetProgressForTesting()" class="font-display text-display tracking-tighter text-primary cursor-pointer active:opacity-70 select-none">
                 Stamps
-            </div>
-            <nav class="hidden md:flex items-center gap-stack-lg h-full">
-                <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">探索關卡</a>
-                <a id="nav-collection" class="font-headline-md text-headline-md text-on-surface-variant transition-colors cursor-pointer pb-1" href="#">我的收藏</a>
-                <a class="font-headline-md text-headline-md text-on-surface-variant hover:text-primary transition-colors cursor-pointer" href="#">兌換獎勵</a>
             </nav>
             <div class="flex items-center gap-stack-md">
                 <span class="md:hidden material-symbols-outlined text-primary cursor-pointer" data-icon="menu">menu</span>
@@ -136,7 +131,7 @@
                 </div>
                 <h1 class="font-display text-headline-lg-mobile md:text-display font-bold text-black mb-stack-sm">所有關卡皆已完成！</h1>
                 <p id="completed-congrats" class="font-body-lg text-on-surface-variant max-w-2xl px-4">
-                    恭喜你！你已成功探索此活動的所有創新中心。你的好奇心與探索值得這份專屬榮耀。
+                    恭喜你！你已成功探索此活動。你的好奇心與探索值得這份專屬榮耀。
                 </p>
             </section>
 
@@ -147,18 +142,8 @@
                 <button onclick="alert('獎勵兌換成功！請向現場工作人員領取您的限量精美紀念品。')" class="w-full bg-primary text-on-primary font-label-caps text-label-caps py-6 px-stack-lg border border-primary hover:bg-neutral-800 transition-all duration-300 mb-stack-md flex items-center justify-center gap-2 tracking-widest font-bold">
                     兌換專屬獎勵 (REDEEM REWARDS)
                     <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
-                </button>
-                <div class="flex flex-col md:flex-row gap-stack-md justify-center text-sm">
-                    <a class="text-on-surface-variant hover:text-primary underline flex items-center justify-center gap-1 cursor-pointer" href="#">
-                        <span class="material-symbols-outlined text-[14px]">share</span> 分享輝煌成就
-                    </a>
-                    <a class="text-on-surface-variant hover:text-primary underline flex items-center justify-center gap-1 cursor-pointer" href="#">
-                        <span class="material-symbols-outlined text-[14px]">grid_view</span> 查看榮譽證書
-                    </a>
-                </div>
-            </section>
-        </div>
-
+            
+               
     </main>
 
     <footer class="w-full mt-stack-xl bg-surface-container-lowest border-t border-outline-variant">
@@ -167,7 +152,7 @@
                 STAMPS EVENT CRAFT 數位集章系統
             </div>
             <div class="font-label-sm text-label-sm text-on-surface">
-                © 2026 Event Craft. 保留所有權利。
+                © 2026 hamster software 保留所有權利。
             </div>
         </div>
     </footer>
@@ -187,7 +172,7 @@
                     <input type="password" id="modal-passcode" inputmode="numeric" placeholder="••••" class="w-full border border-slate-300 bg-slate-50 p-3 text-center tracking-widest font-bold text-lg focus:outline-none focus:border-black rounded-none">
                 </div>
                 <button onclick="verifyPasscode()" class="w-full py-3 bg-black text-white text-[12px] font-bold tracking-widest hover:bg-neutral-800 transition-colors rounded-none">
-                    確認蓋章驗證 (VERIFY)
+                    確認蓋章驗證 
                 </button>
             </div>
         </div>
@@ -340,7 +325,7 @@
                 renderGrid();
                 updateProgress();
             } else {
-                alert('❌ 認證碼錯誤！請詢問現場關卡工作人員。');
+                alert(' 認證碼錯誤！請詢問現場關卡工作人員。');
             }
         }
 
